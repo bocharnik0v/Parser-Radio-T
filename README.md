@@ -12,7 +12,7 @@
 0 7 * * 0 /root/parser_radio-t.sh > /dev/null 2>/dev/null
 ```
 
-# Скриншот
+## Скриншот
 
 ![prev](https://user-images.githubusercontent.com/35877180/35481346-0335bda2-044c-11e8-8afe-5b1a13298aa4.jpg)
 
