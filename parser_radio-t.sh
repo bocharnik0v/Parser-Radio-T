@@ -7,7 +7,7 @@
 #Source: https://github.com/bocharnik0v                                                 |
 #                                                                                       |
 #Files: parser_radio-t.sh                                                               |
-#Build: 280118                                                                          |
+#Build: 280318                                                                          |
 #Copyright: 2018 Bocharnikov Sergei                                                     |
 #--------------------------------[ License: MIT ]---------------------------------------+
 #                                                                                       |
@@ -33,18 +33,23 @@
 # Парсер выходного дня.
 
 # v0.1
-# DOWNLOAD=`curl -s https://radio-t.com | grep "http://cdn.radio-t.com/" | grep -o "http[^>]*.mp3" | sed 'n;d' | sed '2,$d'`
+# DOWNLOAD=`curl -s https://radio-t.com | grep "http://cdn.radio-t.com/" | grep -o "http[^>]*.mp3" | sed 'n;d' | se d '2,$d'`
 
 # v0.2
 # DOWNLOAD=`curl -s https://radio-t.com | grep "http://cdn.radio-t.com/" | awk -F\" '{print $2}' | head -n1`
 
 # v0.3
-DOWNLOAD=`curl -s https://radio-t.com/site-api/last/1?categories=podcast | python3 -c "import sys, json; print('\n'.join([item['audio_url'] for item in json.load(sys.stdin)]))"`
+DOWNLOAD=`curl -s https://radio-t.com/site-api/last/1?categories=podcast | python3 -c "import sys, json; print('\ n'.join([item['audio_url'] for item in json.load(sys.stdin)]))"`
 
-wget -c -P /mnt16/radio-t/ $DOWNLOAD
+DIR=/mnt16/radio-t/
+LOG=/mnt16/radio-t/radiot.log
+
+echo "Please wait..."
+
+wget -c -P $DIR $DOWNLOAD -a $LOG >> $LOG
 
 # -c докачивание в случае обрыва
 # -P путь куда именно скачать
+# -a путь куда писать логи
 
 echo -e '\e[32m'"Done!"'\e[39m'
-
