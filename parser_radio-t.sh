@@ -33,13 +33,13 @@
 # Парсер выходного дня.
 
 # v0.1
-# DOWNLOAD=`curl -s https://radio-t.com | grep "http://cdn.radio-t.com/" | grep -o "http[^>]*.mp3" | sed 'n;d' | se d '2,$d'`
+# DOWNLOAD=`curl -s https://radio-t.com | grep "http://cdn.radio-t.com/" | grep -o "http[^>]*.mp3" | sed 'n;d' | sed '2,$d'`
 
 # v0.2
 # DOWNLOAD=`curl -s https://radio-t.com | grep "http://cdn.radio-t.com/" | awk -F\" '{print $2}' | head -n1`
 
 # v0.3
-DOWNLOAD=`curl -s https://radio-t.com/site-api/last/1?categories=podcast | python3 -c "import sys, json; print('\ n'.join([item['audio_url'] for item in json.load(sys.stdin)]))"`
+DOWNLOAD=`curl -s https://radio-t.com/site-api/last/1?categories=podcast | python3 -c "import sys, json; print('\n'.join([item['audio_url'] for item in json.load(sys.stdin)]))"`
 
 DIR=/mnt16/radio-t/
 LOG=/mnt16/radio-t/radiot.log
