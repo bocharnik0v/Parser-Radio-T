@@ -4,7 +4,7 @@
 #Name: parser_radio-t                                                                   |
 #Author: Bocharnikov Sergei                                                             |
 #E-mail: bocharnikov@dezigner.ru                                                        |
-#Source: https://github.com/bocharnik0v                                                 |
+#Source: https://github.com/bocharnikov                                                 |
 #                                                                                       |
 #Files: parser_radio-t.sh                                                               |
 #Build: 280318                                                                          |
